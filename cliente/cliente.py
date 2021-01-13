@@ -58,7 +58,7 @@ def main():
             prod = input("Digite o id do produto a ser encontrado: ")
             
             try:
-                produto = requests.get(url + '/produto/'+prod)            
+                produto = requests.get(url + 'produto/'+prod)            
                 produto = json.loads(produto.content.decode())            
 
                 for prod in produto['Produto']:
@@ -75,13 +75,93 @@ def main():
             prod = input("Digite o id do produto a ser removido: ")
 
             try:
-                produto = requests.delete(url + '/produto/'+prod)
+                produto = requests.delete(url + 'produto/'+prod)
                 if(404 == produto.status_code):
                     print("Produto não encontrado, por favor digite um id válido.")
                 else:
                     print("Produto removido com sucesso.")
             except:
                 print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+        elif(escolha == 5):
+            opc = input("Digite o id do produto a ser atualizado: ")
+
+
+
+            nome = input("Digite o novo nome: ")
+            preco = input("Digite o novo preco: ")
+            quantidade = input("Digite a nova quantidade: ")
+            
+            if(nome == '' and preco == '' and quantidade == ''):
+                print("Nada alterado pois nenhum dado foi informado.")
+            elif(nome == '' and preco == ''):
+                try:
+                    produto = requests.put(url + 'produto/'+opc, json={                        
+                        "quantidade": int(quantidade)
+                    })
+
+                    print("Produto atualizado com sucesso.\n")
+                except:
+                    print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+            elif(nome == '' and quantidade == ''):
+                try:
+                    produto = requests.put(url + 'produto/'+opc, json={                        
+                        "preco": int(preco)
+                    })
+
+                    print("Produto atualizado com sucesso.\n")
+                except:
+                    print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+            elif (quantidade == '' and preco == ''):
+                try:
+                    produto = requests.put(url + 'produto/'+opc, json={                        
+                        "name": nome
+                    })
+
+                    print("Produto atualizado com sucesso.\n")
+                except:
+                    print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+            elif (nome == ''):
+                try:
+                    produto = requests.put(url + 'produto/'+opc, json={   
+                        "preco": int(preco),                     
+                        "quantidade": int(quantidade)
+                    })
+
+                    print("Produto atualizado com sucesso.\n")
+                except:
+                    print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+            elif quantidade == '':
+                try:
+                    produto = requests.put(url + 'produto/'+opc, json={   
+                        "name": nome,
+                        "preco": int(preco),                                        
+                    })
+
+                    print("Produto atualizado com sucesso.\n")
+                except:
+                    print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+            elif preco == '':
+                try:
+                    produto = requests.put(url + 'produto/'+opc, json={   
+                        "name": nome,                     
+                        "quantidade": int(quantidade)
+                    })
+
+                    print("Produto atualizado com sucesso.\n")
+                except:
+                    print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+            else:
+                try:
+                    produto = requests.put(url + 'produto/'+opc, json={   
+                        "name": nome,
+                        "preco": int(preco),                     
+                        "quantidade": int(quantidade)
+                    })
+
+                    print("Produto atualizado com sucesso.\n")
+                except:
+                    print("Erro ao cadastrar produto, verifique os dados e tente novamente.\n")
+        
 
 
             
