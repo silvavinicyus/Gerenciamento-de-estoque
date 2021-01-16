@@ -1,4 +1,4 @@
-# PROJETO: Gerenciador de Estoque
+PROJETO: Gerenciador de Estoque
 Vinícyus Silva Soares
 
 -- INSTRUÇÕES PARA FUNCIONAR O CÓDIGO:
