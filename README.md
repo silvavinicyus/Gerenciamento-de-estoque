@@ -1,12 +1,12 @@
 # PROJETO: Gerenciador de Estoque
 Vinícyus Silva Soares
 
--- INSTRUÇÕES PARA FUNCIONAR O CÓDIGO:
-    -- Para rodar o projeto é necessário ter instalado:
-        -- Python 3
-        -- Biblioteca flask
-        -- Biblioteca requests 
-        -- Package Manager Pip
+    -- INSTRUÇÕES PARA FUNCIONAR O CÓDIGO:
+        -- Para rodar o projeto é necessário ter instalado:
+            -- Python 3
+            -- Biblioteca flask
+            -- Biblioteca requests 
+            -- Package Manager Pip       
 
     -- Como instalar o Python3:
         -- Windows: python.org.br/instalacao-windows/
